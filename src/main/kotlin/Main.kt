@@ -33,21 +33,19 @@ fun agoToText(seconds: Int): String {
 }
 
 fun agoToMinutes(minutes: Int): String {
-    val result =
-        if (minutes % 10 == 1 && minutes != 11) {
-            "$minutes минуту"
-        } else if (minutes % 10 in (2..4) && minutes !in (12..14)) {
-            "$minutes минуты"
-        } else "$minutes минут"
+    val result = when {
+        minutes % 10 == 1 && minutes != 11 -> "$minutes минуту"
+        minutes % 10 in (2..4) && minutes !in (12..14) -> "$minutes минуты"
+        else -> "$minutes минут"
+    }
     return result
 }
 
 fun agoToHours(hours: Int): String {
-    val result =
-        if (hours % 10 == 1 && hours != 11) {
-            "$hours час"
-        } else if (hours % 10 in (2..4) && hours !in (12..14)) {
-            "$hours часа"
-        } else "$hours часов"
+    val result = when {
+        hours % 10 == 1 && hours != 11 -> "$hours час"
+        hours % 10 in (2..4) && hours !in (12..14) -> "$hours часа"
+        else -> "$hours часов"
+    }
     return result
 }
